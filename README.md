@@ -13,16 +13,19 @@ Veja [requisitos-hardware-ollama.md](requisitos-hardware-ollama.md) para detalhe
 ## Deploy Rapido
 
 ```bash
-# Clonar repositorio principal do OpenClaw
+# 1. Instalar Docker (se ainda nao tiver)
+curl -fsSL https://get.docker.com | sh
+
+# 2. Clonar repositorio principal do OpenClaw
 git clone https://github.com/openclaw/openclaw.git
 cd openclaw
 
-# Copiar arquivos deste repo (ou baixar diretamente)
+# 3. Baixar arquivos de setup com Ollama
 curl -O https://raw.githubusercontent.com/inematds/docker-clawdbot-ollama/main/docker-compose.ollama.yml
 curl -O https://raw.githubusercontent.com/inematds/docker-clawdbot-ollama/main/docker-ollama-setup.sh
 chmod +x docker-ollama-setup.sh
 
-# Rodar setup automatico
+# 4. Rodar setup automatico
 ./docker-ollama-setup.sh
 ```
 
