@@ -237,7 +237,7 @@ docker compose "${COMPOSE_ARGS[@]}" up -d ollama
 log_info "Waiting for Ollama to be ready..."
 max_attempts=30
 attempt=0
-while ! docker compose "${COMPOSE_ARGS[@]}" exec -T ollama curl -sf http://localhost:11434/api/tags >/dev/null 2>&1; do
+while ! docker exec openclaw-ollama ollama list >/dev/null 2>&1; do
   attempt=$((attempt + 1))
   if [[ $attempt -ge $max_attempts ]]; then
     log_error "Ollama failed to start after ${max_attempts} attempts"
